@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title> Cece's Portfolio</title>
+    <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    .bgimg {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('https://th.bing.com/th/id/R.260df90d353cc44162f816d46aa97d09?rik=fdQwbDGcUFeqAw&pid=ImgRaw&r=0');
+      min-height: 100%;
+    -webkit-filter: grayscale(85%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(85%);
+    opacity: 0.25;
+    }
+    img {
+  -webkit-filter: grayscale(85%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(85%);
+}
+.homeVideo {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+      -webkit-filter: grayscale(85%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(85%);
+}
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 240px;
+  height: auto;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+/* first button */
+.btn {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin: 5px 2px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+    box-shadow: 8px 8px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    box-shadow: 4px 4px #000000;
+    transform: translateY(4px);
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    border-color: white;
+}
+
+.btn:active {
+    box-shadow: 0 0 #000000;
+    transform: translateY(8px);
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    border-color: white;
+}
+
+.btn:disabled {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    box-shadow: none;
+    transform: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* second button */
+.btnStar {
+    position: relative;
+    padding: 12px 35px;
+    background: #fec195;
+    font-size: 17px;
+    font-weight: 500;
+    color: #181818;
+    border: 3px solid #fec195;
+    border-radius: 8px;
+    box-shadow: 0 0 0 #fec1958c;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.star-1 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s ease;
+}
+
+.btnStar:hover {
+    background: #000000;
+    color: #fec195;
+    box-shadow: 0 0 25px #fec1958c;
+}
+
+.btnStar:hover .star-1 {
+    position: absolute;
+    top: -80%;
+    left: -30%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.btnStar:hover .star-2 {
+    position: absolute;
+    top: -25%;
+    left: 10%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.btnStar:hover .star-3 {
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.btnStar:hover .star-4 {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.btnStar:hover .star-5 {
+    position: absolute;
+    top: 25%;
+    left: 115%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.btnStar:hover .star-6 {
+    position: absolute;
+    top: 5%;
+    left: 60%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.fil0 {
+    fill: #fffdef;
+}
+
+/* third button */
+.btnPrimary {
+    color: #000000;
+    border: 0 solid #000000;
+    padding: 20px 50px;
+    margin: 10px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 0px;
+    box-shadow: 10px 10px 5px rgb(173, 230, 212);
+    background-color: #3de795;
+    box-sizing: border-box;
+    cursor: pointer;
+    transform: rotate(-2deg);
+
+}
+
+.btnPrimary:hover {
+    box-shadow: 10px 10px 5px rgb(216, 229, 142);
+    transform: rotate(4deg);
+    box-sizing: border-box;
+    background-color: rgb(217, 211, 93);
+    color: white;
+}
+
+    </style>
+  </head>
+  
+<body>
+
+<!-- Sidebar with image -->
+<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%">
+  <div class="bgimg"></div>
+</nav>
+
+<!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Portfolio</a>
+    <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">About</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-main w3-padding-large" style="margin-left:40%">
+
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+  <!-- Header -->
+  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
+    <h1 class="w3-jumbo"><b>Cece Calmets</b></h1>
+    <p>Website and Software Developer</p>
+    <!--video-->
+    <video class="homeVideo" autoplay loop>
+        <source src="https://cdn.pixabay.com/video/2017/12/20/13495-248644905_large.mp4"
+         class="homeImage" type="video/mp4">
+         <source src="https://cdn.pixabay.com/video/2017/12/20/13495-248644905_large.mp4" type="video/ogg">
+            Your browser does not support the video tag.
+    </video>
+   <!--/video-->
+<!--dowload resume-->
+    
+      <a href="https://cac-word-edit.officeapps.live.com/we/WordViewer/request.pdf?WOPIsrc=https%3A%2F%2Fmyaolc%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fclementine%5Fcalmets%5Fmy%2Daolcc%5Fcom%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2F0ee8faba1eac4e69bff01417063eba1a&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkRhREFmalFRbXB5T1h4MlJyS19XNWx2b0xaNCJ9.eyJhdWQiOiJ3b3BpL215YW9sYy1teS5zaGFyZXBvaW50LmNvbUAyYzQ0NGI5Yy04Y2NkLTRmMzEtYWFhNy0yNWIyNjBmZTQyYmEiLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDBAOTAxNDAxMjItODUxNi0xMWUxLThlZmYtNDkzMDQ5MjQwMTliIiwibmJmIjoiMTcxNjQzMzM4MSIsImV4cCI6IjE3MTY0NjkzODEiLCJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8Y2xlbWVudGluZS5jYWxtZXRzQG15LWFvbGNjLmNvbSIsIm5paSI6Im1pY3Jvc29mdC5zaGFyZXBvaW50IiwiaXN1c2VyIjoidHJ1ZSIsImNhY2hla2V5IjoiMGguZnxtZW1iZXJzaGlwfDEwMDMyMDAzNTE0YTYxYzRAbGl2ZS5jb20iLCJzaWQiOiIxYTFjOWNmYy1lMGMyLTRmM2QtOWY0MC00NzZlYmU5MzQyMzQiLCJzaWduaW5fc3RhdGUiOiJbXCJrbXNpXCJdIiwieG1zX2NjIjoiW1wiQ1AxXCJdIiwieG1zX3NzbSI6IjEiLCJpc2xvb3BiYWNrIjoiVHJ1ZSIsImFwcGN0eCI6IjBlZThmYWJhMWVhYzRlNjliZmYwMTQxNzA2M2ViYTFhO2dGUFZXR3JZZG5lN3JrTmJaUDJoVVYvWWUyQT07RGVmYXVsdDs7N0ZGRkZGRkZGRkZCRkZGRjtUcnVlOzs7NTEyOzNiNTkyYmExLTMwZWYtNTAwMC03ZTI3LTcxMTYwNWE5N2MzZCIsImZpZCI6IjE5MjI0MyJ9.z6Yqgy-ChfUnz10r03C-RfQyXImyVu-ntg376WcG2UH2fxkrifEgG4cdXI3vcAEk4uJOl2ZQHk1BpKYWKtv_QNjmHfIMRs-fon9p3GXbb22CIcoZYwJMnItjspb-BZgxgbGeSEFTm_aUuRjJk4dDzkEZABuXrih6tfm3P9IQUX-elTx7SEG-Cyov3IdYom2n5plaWyse9lfpXOk3AFYVBL1WiVnkk1-HCmiBNec2ttgg11qJUa6SObAhr8LkvLXzS74JO2sVJAxgwzRK8_dQTwAa7NuvEAMcPH7fRtwXTphr7b27Nzd6sVwznWH8lrpyiLLOUQNmkIVBFFDXEAz4PQ&access_token_ttl=1716469383103&type=downloadpdfwithoutcomments&rndm=12065228-88d0-43a1-8ce1-9ccfedd53e22&usid=196d84c3-21bc-d0f1-7c5e-e102761a0fe1&build=20240521.5&waccluster=CA3">
+        <button class="w3-button w3-light-grey w3-padding-large w3-margin-top">
+      <i class="fa fa-download"></i> Download Resume
+      </a>
+    </button>
+  </header>
+<!--/download resume-->
+
+  <!-- Portfolio Section -->
+  <div class="w3-padding-32 w3-content" id="portfolio">
+    <h2 class="w3-text-grey">My Portfolio</h2>
+    <p>In this Portolio, we have a collection of Cece's work. It contains CSS- and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.</p>
+    <hr class="w3-opacity">
+
+    <!-- Grid for buttons -->
+  </br> 
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half">
+        <div class="w3-half"> GitHub Repository
+        <a href="https://github.com/CeceCalmets/Tech-Academy-Projects.git">The Tech Academy GitHub</a>
+      </div> </br></br></br></br></br>
+        
+    </br> 
+              <div class="popup" onclick="myFunction()">Click me to view some buttons!
+            <span class="popuptext" id="myPopup">
+<!--first button-->
+<button type="button" class="btn">Button</button>                
+<!--/first button-->
+</br> </br>
+<!--second button-->
+<button class="btnStar">
+  Button
+  <div class="star-1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xml:space="preserve"
+      version="1.1"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      viewBox="0 0 784.11 815.53"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          class="fil0"
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xml:space="preserve"
+      version="1.1"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      viewBox="0 0 784.11 815.53"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          class="fil0"
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-3">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xml:space="preserve"
+      version="1.1"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      viewBox="0 0 784.11 815.53"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          class="fil0"
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-4">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xml:space="preserve"
+      version="1.1"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      viewBox="0 0 784.11 815.53"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          class="fil0"
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-5">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xml:space="preserve"
+      version="1.1"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      viewBox="0 0 784.11 815.53"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          class="fil0"
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-6">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xml:space="preserve"
+      version="1.1"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      viewBox="0 0 784.11 815.53"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          class="fil0"
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+        ></path>
+      </g>
+    </svg>
+  </div>
+</button>
+<!--/second button-->
+</br>
+<!--third button-->
+    <button class="btnPrimary">Button</button>
+<!--/third button-->
+        </span>  
+    
+    </div>
+</div>
+<!--right side picture-->
+
+      <div class="w3-half">
+        <img src="https://th.bing.com/th/id/OIP.poGRx2MdaxUwXqNYrq6xcQHaFj?rs=1&pid=ImgDetMain" style="width:100%">
+             </div>
+    <!-- End photo grid -->
+    </div>
+  <!-- End Portfolio Section -->
+  </div>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+    <h2>About</h2>
+    <hr class="w3-opacity">
+    <p>I possesses a deep understanding of the intricacies of the internet, 
+      including programming languages, web frameworks, and databases. I have a 
+      grasp of how to design, build, and maintain websites, applications, 
+      and mobile apps, using various technologies such as HTML, 
+      CSS, JavaScript, and server-side languages like PHP, Ruby, and Python. 
+      I also understand how to ensure the security, scalability, and performance 
+      of digital products, as well as how to troubleshoot and debug issues that may 
+      arise. A good web developer is not only skilled in writing clean and efficient 
+      code, but also has a keen eye for user experience, visual design, 
+      and interaction design.</p>
+    <h3 class="w3-padding-16">My Skills</h3>
+    <p class="w3-wide">Web Design</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:95%">95%</div>
+    </div>
+    <p class="w3-wide">Web Development</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:85%">85%</div>
+    </div>
+    <p class="w3-wide">Software</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:80%">80%</div>
+    </div><br>
+
+      <a href="https://cac-word-edit.officeapps.live.com/we/WordViewer/request.pdf?WOPIsrc=https%3A%2F%2Fmyaolc%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fclementine%5Fcalmets%5Fmy%2Daolcc%5Fcom%2F%5Fvti%5Fbin%2Fwopi%2Eashx%2Ffiles%2F0ee8faba1eac4e69bff01417063eba1a&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkRhREFmalFRbXB5T1h4MlJyS19XNWx2b0xaNCJ9.eyJhdWQiOiJ3b3BpL215YW9sYy1teS5zaGFyZXBvaW50LmNvbUAyYzQ0NGI5Yy04Y2NkLTRmMzEtYWFhNy0yNWIyNjBmZTQyYmEiLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDBAOTAxNDAxMjItODUxNi0xMWUxLThlZmYtNDkzMDQ5MjQwMTliIiwibmJmIjoiMTcxNjQzMzM4MSIsImV4cCI6IjE3MTY0NjkzODEiLCJuYW1laWQiOiIwIy5mfG1lbWJlcnNoaXB8Y2xlbWVudGluZS5jYWxtZXRzQG15LWFvbGNjLmNvbSIsIm5paSI6Im1pY3Jvc29mdC5zaGFyZXBvaW50IiwiaXN1c2VyIjoidHJ1ZSIsImNhY2hla2V5IjoiMGguZnxtZW1iZXJzaGlwfDEwMDMyMDAzNTE0YTYxYzRAbGl2ZS5jb20iLCJzaWQiOiIxYTFjOWNmYy1lMGMyLTRmM2QtOWY0MC00NzZlYmU5MzQyMzQiLCJzaWduaW5fc3RhdGUiOiJbXCJrbXNpXCJdIiwieG1zX2NjIjoiW1wiQ1AxXCJdIiwieG1zX3NzbSI6IjEiLCJpc2xvb3BiYWNrIjoiVHJ1ZSIsImFwcGN0eCI6IjBlZThmYWJhMWVhYzRlNjliZmYwMTQxNzA2M2ViYTFhO2dGUFZXR3JZZG5lN3JrTmJaUDJoVVYvWWUyQT07RGVmYXVsdDs7N0ZGRkZGRkZGRkZCRkZGRjtUcnVlOzs7NTEyOzNiNTkyYmExLTMwZWYtNTAwMC03ZTI3LTcxMTYwNWE5N2MzZCIsImZpZCI6IjE5MjI0MyJ9.z6Yqgy-ChfUnz10r03C-RfQyXImyVu-ntg376WcG2UH2fxkrifEgG4cdXI3vcAEk4uJOl2ZQHk1BpKYWKtv_QNjmHfIMRs-fon9p3GXbb22CIcoZYwJMnItjspb-BZgxgbGeSEFTm_aUuRjJk4dDzkEZABuXrih6tfm3P9IQUX-elTx7SEG-Cyov3IdYom2n5plaWyse9lfpXOk3AFYVBL1WiVnkk1-HCmiBNec2ttgg11qJUa6SObAhr8LkvLXzS74JO2sVJAxgwzRK8_dQTwAa7NuvEAMcPH7fRtwXTphr7b27Nzd6sVwznWH8lrpyiLLOUQNmkIVBFFDXEAz4PQ&access_token_ttl=1716469383103&type=downloadpdfwithoutcomments&rndm=12065228-88d0-43a1-8ce1-9ccfedd53e22&usid=196d84c3-21bc-d0f1-7c5e-e102761a0fe1&build=20240521.5&waccluster=CA3">
+        <button class="w3-button w3-light-grey w3-padding-large w3-margin-top">
+      <i class="fa fa-download"></i> Download Resume
+      </a>
+    </button>
+
+    <!-- Testimonials -->
+    <h3 class="w3-padding-24">My Reputation</h3>
+    <img src="https://www.w3schools.com/w3images/avatar_smoke.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <p><span class="w3-large w3-text-black w3-margin-right">Chandler Bing.</span> Web Designer.</p>
+    <p>Jane Doe is just awesome. I am so happy to have met her!</p><br>
+   
+    <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <p><span class="w3-large w3-text-black w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
+    <p>Jane Doe saved us from a web disaster.</p><br>
+    
+    <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <p><span class="w3-large w3-text-black w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
+    <p>No one is better than Jane Doe.</p><br>
+    
+    <!-- Grid for pricing tables -->
+    <h3 class="w3-padding-16">My Price</h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-center w3-card w3-hover-shadow">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Web development</li>
+          <li class="w3-padding-16">Mail Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 00</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-half">
+        <ul class="w3-ul w3-center w3-card w3-hover-shadow">
+          <li class="w3-black w3-xlarge w3-padding-32">Pro</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Web Developemnt</li>
+          <li class="w3-padding-16">Software Development</li>
+          <li class="w3-padding-16">Endless Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 00</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    <!-- End Grid/Pricing tables -->
+    </div>
+    
+  <!-- End About Section -->
+  </div>
+
+  <!-- Contact Section -->
+  <div class="w3-padding-32 w3-content w3-text-grey" id="contact" style="margin-bottom:64px">
+    <h2>Contact Me</h2>
+    <hr class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Calgary, Canada</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 121212</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: clementine.calmets@my-aolcc.com</p>
+    </div>
+    
+    <!-- Image of location/map -->
+    <img src="https://th.bing.com/th/id/R.f643e4418628db605567ef8d62b1f74b?rik=tW3sz1wu2kkWtQ&pid=ImgRaw&r=0" class="w3-image w3-greyscale" style="width:100%;margin:32px 0">
+   
+    <p>Lets get in touch. Send me a message:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+  <!-- End Contact Section -->
+  </div>  
+  
+  <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin:-24px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-small">This website was made with W3schools Space, by Clementine Calmets.</p>
+    <!-- End footer -->
+  </footer>
+<!-- END PAGE CONTENT -->
+</div>
+
+<script>
+// Open and close sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "60%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
